@@ -10,7 +10,16 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            Text("Pikachu")
+                .font(.title)
+                .fontWeight(.bold)
+            Text("025")
+                .font(.caption)
+            Image("Pikachu")
+                .resizable().aspectRatio(contentMode:.fit)
+                .frame(width: 150.0, height: 150)
+        }
     }
 }
 
