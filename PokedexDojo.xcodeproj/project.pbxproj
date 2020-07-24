@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,8 @@
 		6579E46724CB0B91009EB626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6579E46624CB0B91009EB626 /* Assets.xcassets */; };
 		6579E46A24CB0B91009EB626 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6579E46924CB0B91009EB626 /* Preview Assets.xcassets */; };
 		6579E46D24CB0B91009EB626 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6579E46B24CB0B91009EB626 /* LaunchScreen.storyboard */; };
+		6579E47624CB1265009EB626 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 6579E47524CB1265009EB626 /* URLImage */; };
+		6579E47824CB13C5009EB626 /* PokeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6579E47724CB13C5009EB626 /* PokeCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,7 @@
 		6579E46924CB0B91009EB626 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6579E46C24CB0B91009EB626 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6579E46E24CB0B91009EB626 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6579E47724CB13C5009EB626 /* PokeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6579E47624CB1265009EB626 /* URLImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +63,7 @@
 				6579E46024CB0B8E009EB626 /* AppDelegate.swift */,
 				6579E46224CB0B8E009EB626 /* SceneDelegate.swift */,
 				6579E46424CB0B8E009EB626 /* ContentView.swift */,
+				6579E47724CB13C5009EB626 /* PokeCard.swift */,
 				6579E46624CB0B91009EB626 /* Assets.xcassets */,
 				6579E46B24CB0B91009EB626 /* LaunchScreen.storyboard */,
 				6579E46E24CB0B91009EB626 /* Info.plist */,
@@ -91,6 +96,9 @@
 			dependencies = (
 			);
 			name = PokedexDojo;
+			packageProductDependencies = (
+				6579E47524CB1265009EB626 /* URLImage */,
+			);
 			productName = PokedexDojo;
 			productReference = 6579E45D24CB0B8E009EB626 /* PokedexDojo.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +127,9 @@
 				Base,
 			);
 			mainGroup = 6579E45424CB0B8D009EB626;
+			packageReferences = (
+				6579E47424CB1265009EB626 /* XCRemoteSwiftPackageReference "url-image" */,
+			);
 			productRefGroup = 6579E45E24CB0B8E009EB626 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -148,6 +159,7 @@
 			files = (
 				6579E46124CB0B8E009EB626 /* AppDelegate.swift in Sources */,
 				6579E46324CB0B8E009EB626 /* SceneDelegate.swift in Sources */,
+				6579E47824CB13C5009EB626 /* PokeCard.swift in Sources */,
 				6579E46524CB0B8E009EB626 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,6 +354,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6579E47424CB1265009EB626 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.19;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6579E47524CB1265009EB626 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6579E47424CB1265009EB626 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6579E45524CB0B8D009EB626 /* Project object */;
 }

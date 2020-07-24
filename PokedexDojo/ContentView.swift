@@ -7,20 +7,34 @@
 //
 
 import SwiftUI
+import URLImage
 
 struct ContentView: View {
-    @State var pokemon = Pokemon(name: "Pikachu2", number: "025", imagePath: "Pikachu")
+    
+    @State var pokemons = [
+        pokemon,
+        pokemon,
+        pokemon,
+        pokemon,
+        pokemon,
+        pokemon,
+        pokemon,
+        pokemon,
+    ]
     
     var body: some View {
         ScrollView {
             VStack {
-                PokeCard(pokemon: pokemon)
-                PokeCard(pokemon: pokemon)
-                PokeCard(pokemon: pokemon)
+                ForEach(pokemons, id: \.number) { pokemon in
+                    PokeCard(pokemon: pokemon)
+                }
             }
+            .frame(maxWidth: .infinity)
         }
     }
 }
+
+let pokemon = Pokemon(name: "Pikachu2", number: "025", imagePath: "https://img.pokemondb.net/artwork/raichu.jpg")
 
 struct Pokemon {
     let name: String
@@ -30,28 +44,7 @@ struct Pokemon {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(
-            pokemon: Pokemon(name: "Pikachu", number: "025", imagePath: "Pikachu")
-        )
+        ContentView()
     }
 }
 
-struct PokeCard: View {
-    let pokemon: Pokemon
-    var body: some View {
-        VStack {
-            Text(pokemon.name)
-                .font(.title)
-                .fontWeight(.bold)
-            Text(pokemon.number)
-                .font(.caption)
-            Image(pokemon.imagePath)
-                .resizable().aspectRatio(contentMode:.fit)
-                .frame(width: 150.0, height: 150)
-        }
-        .padding()
-        .background(Color.white)
-        .cornerRadius(20)
-        .shadow(radius: 10)
-    }
-}
