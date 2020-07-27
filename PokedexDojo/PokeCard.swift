@@ -15,12 +15,12 @@ struct PokeCard: View {
     
     var body: some View {
         VStack {
-            Text(pokemon.name)
+            Text(pokemon.name ?? "Unknown")
                 .font(.title)
                 .fontWeight(.bold)
-            Text(pokemon.number)
+            Text(pokemon.number ?? "Unknown Number")
                 .font(.caption)
-            URLImage(URL(string: pokemon.imagePath)!) {
+            URLImage(pokemon.imageURL) {
                 proxy in
                 proxy.image
                     .resizable()
@@ -32,5 +32,11 @@ struct PokeCard: View {
         .background(Color.white)
         .cornerRadius(20)
         .shadow(radius: 10)
+    }
+}
+
+struct PokeCard_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }

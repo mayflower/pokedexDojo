@@ -1,0 +1,6 @@
+{
+  "21e37dde51d39f2442ca0548918512d5b209bc9a3ccbd3a19ff80569558251b5": {
+    "name": "pokemons",
+    "source": "query pokemons($first: Int!) {\n  pokemons(first: $first) {\n    __typename\n    id\n    name\n    number\n    image\n  }\n}"
+  }
+}

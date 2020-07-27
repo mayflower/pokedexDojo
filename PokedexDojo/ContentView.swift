@@ -8,42 +8,39 @@
 
 import SwiftUI
 import URLImage
+import Combine
 
 struct ContentView: View {
-    
-    @State var pokemons = [
-        pokemon,
-        pokemon,
-        pokemon,
-        pokemon,
-        pokemon,
-        pokemon,
-        pokemon,
-        pokemon,
-    ]
+    @ObservedObject var pokeFetcher = PokeFetcher()
     
     var body: some View {
-        ScrollView {
-            VStack {
-                ForEach(pokemons, id: \.number) { pokemon in
+            List {
+                ForEach(pokeFetcher.pokemons, id: \.number) { pokemon in
                     PokeCard(pokemon: pokemon)
                 }
             }
             .frame(maxWidth: .infinity)
-        }
     }
 }
 
-let pokemon = Pokemon(name: "Pikachu2", number: "025", imagePath: "https://img.pokemondb.net/artwork/raichu.jpg")
-
-struct Pokemon {
-    let name: String
-    let number: String
-    let imagePath: String
+class PokeFetcher: ObservableObject {
+    @Published var pokemons: [Pokemon] = []
+    var subscription: AnyCancellable?
+    
+    init() {
+        subscription = PokemonsQuery(first: 200)
+        .fetchPokemons()
+        .replaceError(with: [])
+            .assign(to: \.pokemons, on: self)
+    }
 }
+
+let pokemon = Pokemon(id: "1", name: "Pikachu2", number: "025", image: "https://img.pokemondb.net/artwork/raichu.jpg")
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
+        
         ContentView()
     }
 }
